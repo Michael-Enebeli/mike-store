@@ -1,0 +1,167 @@
+
+header h1 {
+  margin: 25px 0;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.87);
+}
+.navbar {
+  display: flex;
+  background-color: #333;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 10px;
+  flex-grow: 1; 
+}
+.nav-links li {
+  margin: 0 2%;
+}
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #646cff;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+  cursor: none;
+}
+@media (min-width: 1024px) {
+.nav-links a {
+   cursor: pointer;
+  }
+}
+.nav-links a:hover {
+  cursor: pointer;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color:  #646cff;
+  transform: scaleX(0);
+  transition: transform 0.15s ease;
+}
+.nav-links a.active {
+  font-weight: bold;
+  color:  #646cff;
+}
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+.cart-icon {
+  margin-right: 5%;
+}
+.cart-icon i {
+  color: #646cff;
+  font-size: 0.85rem;
+}
+@media (min-width: 1024px) {
+  .cart-icon {
+   cursor: pointer;
+  }
+}
+
+.category-description {
+  font-size: 0.9rem;
+  color: #fff;
+  margin: 10px 10px 0 1.3rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 15px; 
+  padding: 10px 20px;
+}
+@media (min-width: 720px) {
+  .product-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding-bottom: 15px;
+  text-align: center;
+  background: #fff;
+  background-color: #333;
+  color: #fff;
+  display: grid;
+  gap: 7px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+.product-card:hover {
+  transform: scale(1.025);
+}
+.product-card img {
+  border-radius:8px 8px 0 0;
+  width: 100%;
+  height: 200px;
+  max-height: 250px;
+  object-fit: cover;
+  width: 100%;
+  border-bottom: 2px solid #646cff;
+  }
+.product-card button {
+  border-radius: 8px;
+  padding: 0.36em 2px;
+  width: 100px;
+  display: block;
+  margin: 0 auto;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  border: none;
+  color:#fff;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  }
+.product-card button:hover {
+  background: #646cff;
+  }
+footer {
+  margin: 30px 0px 80px 0px;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  font-size: 0.85rem;
+}
+footer ul {
+ display: flex;
+ flex-direction: row;
+ text-align: center;
+ text-decoration: none;
+ list-style: none;
+ justify-content: center;
+}
+footer li {
+ padding: 10px;
+}
+footer a {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  transition: color 0.2s ease;
+ }
+ footer a:hover {
+  color: rgba(255, 255, 255, 0.9);
+ }
