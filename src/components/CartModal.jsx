@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./CartModal.css"; 
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
   const [isProcessing, setIsProcessing] = useState(false);
@@ -96,7 +97,7 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-btn" onClick={handleClose}>&times;</button>
+        <button className="close-btn" title="Close" onClick={handleClose}>&times;</button>
 
         {isProcessing ? (
           <div className="processing-text">Processing</div>
@@ -119,10 +120,13 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
                     <span>
                       {item.name} ({item.quantity}) - ${item.price * item.quantity}
                     </span>
-                    <div className="cart-buttons">
-                      <button onClick={() => onDecreaseQuantity(item.id)}>➖</button>
-                      <button onClick={() => increaseQuantity(item.id)}>➕</button> 
-                      <button onClick={() => onRemoveFromCart(item.id)}>🗑️</button>
+                  <div className="cart-buttons">
+                    <button onClick={() => onDecreaseQuantity(item.id)} 
+                     title="Decrease Quantity"> <i className="fas fa-minus"></i> </button>
+                    <button onClick={() => increaseQuantity(item.id)} 
+                     title="Increase Quantity"> <i className="fas fa-plus"></i> </button>
+                    <button onClick={() => onRemoveFromCart(item.id)} 
+                     title="Remove Item"> <i className="fas fa-trash"></i> </button>
                     </div>
                   </li>
                 ))}

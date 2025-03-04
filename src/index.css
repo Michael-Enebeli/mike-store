@@ -47,7 +47,8 @@ body {
   padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 90%;
+  max-width: 330px;
   max-height: 80vh;  
   overflow-y: auto;  
   text-align: center;
@@ -87,14 +88,14 @@ body {
 
 .cart-buttons {
   display: flex;
-  gap: 7px;
+  gap: 10px;
 }
 
 .cart-buttons button {
   background: green;
   color: white;
   border: none;
-  padding: 5px;
+  padding: 7px;
   cursor: pointer;
 }
 .cart-buttons button:first-child {
@@ -113,11 +114,12 @@ body {
   border: none;
   padding: 10px;
   transition: all 0.3s ease;
-  width: 275px;
+  width: 100%;
+  max-width: 330px;
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
 }
-.checkout-btn:hover {
+.checkout-btn:enabled:hover {
   background: rgb(2, 37, 2);
 }
 @media (min-width: 1024px) {
