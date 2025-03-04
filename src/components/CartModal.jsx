@@ -4,6 +4,7 @@ import "./CartModal.css";
 const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [checkoutTimeout, setCheckoutTimeout] = useState(null); // Store timeout reference
 
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -11,7 +12,6 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
     if (cart.length === 0) return;
     setIsProcessing(true);
 
-    // Check if any item in the cart exceeds the available stock
     const storedProducts = JSON.parse(localStorage.getItem("products")) || {};
     const itemsWithError = [];
 
@@ -26,9 +26,7 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
     });
 
     if (itemsWithError.length > 0) {
-      // Build the error message
       let alertMessage = "You’ve selected more items in stock for ";
-
       if (itemsWithError.length === 1) {
         alertMessage += `${itemsWithError[0]}.`;
       } else if (itemsWithError.length === 2) {
@@ -36,22 +34,19 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
       } else {
         alertMessage += `${itemsWithError.slice(0, -1).join(", ")} and ${itemsWithError[itemsWithError.length - 1]}.`;
       }
-
       alert(alertMessage);
       setIsProcessing(false);
       return;
     }
 
-    setTimeout(() => {
-      // Update stock in local storage for each cart item
+    // Store timeout so we can clear it if needed
+    const timeout = setTimeout(() => {
       cart.forEach((cartItem) => {
         const categoryData = storedProducts[cartItem.category];
         if (categoryData) {
           const productIndex = categoryData.items.findIndex((p) => p.id === cartItem.id);
           if (productIndex !== -1) {
-            // Reduce the stock
             categoryData.items[productIndex].stock -= cartItem.quantity;
-            // Ensure stock doesn't drop below zero
             if (categoryData.items[productIndex].stock < 0) {
               categoryData.items[productIndex].stock = 0;
             }
@@ -63,22 +58,48 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
 
       setIsProcessing(false);
       setIsSuccess(true);
-
-      // Clear the cart
       setCart([]);
 
-      // Optional: trigger a storage event to force other components to update
       window.dispatchEvent(new Event("storage"));
     }, 3500);
+
+    setCheckoutTimeout(timeout); // Save timeout reference
   };
+
+  const handleClose = () => {
+    // Cancel checkout process if running
+    if (isProcessing) {
+      clearTimeout(checkoutTimeout); // Stop setTimeout if checkout was running
+      setIsProcessing(false);
+      setIsSuccess(false);
+    }
+    onClose(); // Close the modal
+  };
+
+  const increaseQuantity = (itemId) => {
+    setCart((prevCart) => {
+      return prevCart.map((item) => {
+        if (item.id === itemId) {
+          if (item.quantity >= item.stock) {
+            alert(`Only ${item.stock} ${item.name} are available in stock.`);
+            return item; // Keep quantity unchanged
+          }
+          return { ...item, quantity: item.quantity + 1 };
+        }
+        return item;
+      });
+    });
+  };
+  
+  
 
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        <button className="close-btn" onClick={onClose}>&times;</button>
+        <button className="close-btn" onClick={handleClose}>&times;</button>
 
         {isProcessing ? (
-          <div className="processing-text">Processing.</div>
+          <div className="processing-text">Processing</div>
         ) : isSuccess ? (
           <div className="success-message">
             <div className="checkmark-container">
@@ -100,6 +121,7 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
                     </span>
                     <div className="cart-buttons">
                       <button onClick={() => onDecreaseQuantity(item.id)}>➖</button>
+                      <button onClick={() => increaseQuantity(item.id)}>➕</button> 
                       <button onClick={() => onRemoveFromCart(item.id)}>🗑️</button>
                     </div>
                   </li>

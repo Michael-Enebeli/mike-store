@@ -35,7 +35,7 @@ const Header = ({ cart, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
           onClose={() => setModalOpen(false)} 
           onRemoveFromCart={onRemoveFromCart} 
           onDecreaseQuantity={onDecreaseQuantity} 
-          setCart={setCart} // Pass setCart to CartModal
+          setCart={setCart}
         />
       )}
     </>

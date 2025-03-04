@@ -7,7 +7,6 @@
 }
 
 body {
-  
   background-color: #242424;
 }
 .cart-icon {
@@ -45,7 +44,7 @@ body {
 
 .modal-content {
   background: white;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 300px;
@@ -81,26 +80,28 @@ body {
   justify-content: space-between;
   align-items: center;
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px 10px;
   background: rgba(50, 50, 50, 0.35);
   border-radius: 5px;
 }
 
 .cart-buttons {
   display: flex;
-  gap: 5px;
+  gap: 7px;
 }
 
 .cart-buttons button {
-  background: red;
+  background: green;
   color: white;
   border: none;
   padding: 5px;
   cursor: pointer;
 }
-
 .cart-buttons button:first-child {
   background: orange;
+}
+.cart-buttons button:last-child {
+  background: red;
 }
 .total-price {
   font-size: 18px;
@@ -111,10 +112,13 @@ body {
   color: white;
   border: none;
   padding: 10px;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
+  width: 275px;
+  display: block;
+  margin:0 auto;
 }
 .checkout-btn:hover {
-  opacity: 0.825;
+  background: rgb(2, 37, 2);
 }
 @media (min-width: 1024px) {
  .checkout-btn {
@@ -157,4 +161,10 @@ body {
 .no-product {
   color: white;
   text-align: center;
+}
+.flying-image {
+  position: fixed;
+  z-index: 1000;
+  pointer-events: none;
+  transition: transform 1s ease-in-out, opacity 1s ease-in-out;
 }
