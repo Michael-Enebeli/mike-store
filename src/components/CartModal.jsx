@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "./CartModal.css"; 
+import "../styles/CartModal.css"; 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [checkoutTimeout, setCheckoutTimeout] = useState(null); // Store timeout reference
+  const [checkoutTimeout, setCheckoutTimeout] = useState(null);
 
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
@@ -40,7 +40,6 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
       return;
     }
 
-    // Store timeout so we can clear it if needed
     const timeout = setTimeout(() => {
       cart.forEach((cartItem) => {
         const categoryData = storedProducts[cartItem.category];
@@ -70,7 +69,7 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
   const handleClose = () => {
     // Cancel checkout process if running
     if (isProcessing) {
-      clearTimeout(checkoutTimeout); // Stop setTimeout if checkout was running
+      clearTimeout(checkoutTimeout);
       setIsProcessing(false);
       setIsSuccess(false);
     }

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductList from "./components/ProductList";
+import WhatsAppEmailIcons from "./components/WhatsAppEmailIcons";
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -45,23 +46,24 @@ function App() {
         .filter((item) => item.quantity > 0)
     );
   };
-  
+
 
   return (
     <Router>
-      <Header 
-        cart={cart} 
-        onRemoveFromCart={removeFromCart} 
-        onDecreaseQuantity={decreaseQuantity} 
-        setCart={setCart} // Pass setCart to header
+      <Header
+        cart={cart}
+        onRemoveFromCart={removeFromCart}
+        onDecreaseQuantity={decreaseQuantity}
+        setCart={setCart}
       />
       <Routes>
-        <Route path="/" element={<Navigate to="/jewelry" />} />
+        <Route path="/" element={<ProductList category="jewelry" onAddToCart={addToCart} />} />
         <Route path="/jewelry" element={<ProductList category="jewelry" onAddToCart={addToCart} />} />
         <Route path="/clothing" element={<ProductList category="clothing" onAddToCart={addToCart} />} />
         <Route path="/accessories" element={<ProductList category="accessories" onAddToCart={addToCart} />} />
         <Route path="/food" element={<ProductList category="food" onAddToCart={addToCart} />} />
       </Routes>
+      <WhatsAppEmailIcons />
       <Footer />
     </Router>
   );
