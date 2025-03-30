@@ -1,0 +1,146 @@
+.subscription-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px 10px;
+    color: beige;
+    background-color: rgb(45, 61, 61);
+    border-radius: 5px;
+}
+
+.subscription-container span {
+    margin-bottom: 40px;
+    border-radius: 5px;
+    background: #cc5500;
+    display: inline-block;
+    padding: 5px;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 500px) {
+    .subscription-container span {
+        margin-left: 10px;
+
+    }
+
+    .subscription-container h3 {
+        margin-left: 10px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .subscription-container span {
+        margin-left: 40px;
+    }
+}
+
+.subscription-container h3 {
+    font-weight: normal;
+}
+
+@media (min-width: 1024px) {
+    .subscription-container h3 {
+        margin-left: 40px;
+        text-align: left;
+    }
+}
+
+.subscription-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.subscription-form input {
+    padding: 8px;
+    width: 70%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.subscription-form button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.subscription-form button {
+    padding: 10px 15px;
+    border: none;
+    background-color: #ff6600;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.subscription-form button:enabled:hover {
+    background-color: #cc5500;
+}
+
+.subscription-options {
+    margin-top: 20px;
+    display: flex;
+    gap: 5px;
+    max-width: 500px;
+    padding: 10px 3% px 7%;
+}
+
+@media (min-width: 500px) {
+    .subscription-options {
+        padding: 5px 3% 10px 7%;
+    }
+}
+
+.subscription-options label {
+    font-size: 0.8rem;
+    margin-top: 2px;
+}
+
+.subscription-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left-option,
+.right-option {
+    display: flex;
+    gap: 5px;
+}
+
+.right-option {
+    argin-left: auto;
+}
+
+.subscription-options input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #555;
+    border-radius: 5px;
+    background-color: white;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+}
+
+
+.subscription-options input[type="checkbox"]:checked {
+    background-color: #29a54e;
+    border-color: #29a54e;
+}
+
+
+.subscription-options input[type="checkbox"]:checked::after {
+    content: "\f00c";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: white;
+    font-size: 14px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

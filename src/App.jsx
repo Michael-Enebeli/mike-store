@@ -5,6 +5,8 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProductList from "./components/ProductList";
 import WhatsAppEmailIcons from "./components/WhatsAppEmailIcons";
+import SubscriptionForm from "./components/SubscriptionForm";
+
 
 function App() {
   const [cart, setCart] = useState(() => {
@@ -64,6 +66,7 @@ function App() {
         <Route path="/food" element={<ProductList category="food" onAddToCart={addToCart} />} />
       </Routes>
       <WhatsAppEmailIcons />
+      <SubscriptionForm />
       <Footer />
     </Router>
   );

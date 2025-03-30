@@ -103,8 +103,8 @@
   text-align: center;
   padding: 37.5vmin 20px;
   position: relative;
-  background: url("t-shirt.jpg") center/cover no-repeat;
-
+  background: url("/t-shirt.jpg") center/cover no-repeat;
+  background: rgba(173, 166, 166, 0.7);
 }
 
 .hero-section::before {
