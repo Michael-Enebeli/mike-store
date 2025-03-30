@@ -37,7 +37,9 @@ const Header = ({ cart, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
     <>
       <nav className="navbar">
         <ul className="nav-links">
-          <li><NavLink to="/jewelry">Jewelry</NavLink></li>
+        <li><NavLink to="/" 
+         className={({ isActive }) => 
+         (isActive || window.location.pathname === "/" ? "active" : "")}>Jewelry </NavLink> </li>
           <li><NavLink to="/clothing">Clothing</NavLink></li>
           <li><NavLink to="/accessories">Accessories</NavLink></li>
           <li><NavLink to="/food">Food Items</NavLink></li>
