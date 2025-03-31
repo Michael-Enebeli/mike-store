@@ -15,11 +15,12 @@ const WhatsAppEmailIcons = () => {
       <style>{`
         .icons-container {
           position: fixed;
-          bottom: 7%;
+          bottom: 5%;
           right: 7%;
           display: flex;
           align-items: center;
           justify-content: center;
+          z-index: 2000;
         }
 
         .whatsapp-icon, .email-icon {

@@ -38,6 +38,7 @@
   gap: 10px; /* Adds space between icons */
   max-width: 600px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 .wishlist-icon {
   fill: white;
@@ -101,20 +102,28 @@
 }
 
 .icons {
-  isplay: flex;
   justify-content: space-around;
   padding-top: 100px;
 }
 
 .close-btn {
   position: absolute;
-  top: 5%;
+  top: 2%;
   right: 5%;
   background: transparent;
   border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
 }
-.close-btn:hover {
- border: 1px solid tomato;
+  
+
+@media (min-width: 1024px) {
+  .close-btn {
+      cursor: pointer;
+  }
+}
+.fullscreen-panel h2 {
+ margin-bottom: 5px;
+}
+.fullscreen-panel p {
+padding: 0 35px 0 35px;
+font-size: 0.87rem;
 }

@@ -77,7 +77,7 @@ main {
 }
 
 .dropdown-btn:hover {
-  ackground: #1d3b5c;
+  opacity: 0.7;
 }
 
 .dropdown-btn i {
@@ -183,9 +183,12 @@ main {
   object-fit: cover;
   width: 100%;
   z-index: 2;
-  cursor: pointer;
 }
-
+@media (min-width: 1024px) {
+  .product-card img {
+    cursor: pointer;
+  }
+}
 .product-card h3 {
   text-align: center;
   color: beige;
