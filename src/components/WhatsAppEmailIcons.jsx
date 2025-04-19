@@ -40,7 +40,6 @@ const WhatsAppEmailIcons = () => {
         .whatsapp-icon {
           background-color: #25d366;
           animation: ripple-whatsapp 1.3s linear infinite;
-          cursor: none;
         }
 
         .email-icon {

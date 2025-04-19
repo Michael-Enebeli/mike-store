@@ -110,10 +110,6 @@
     gap: 5px;
 }
 
-.right-option {
-    argin-left: auto;
-}
-
 .subscription-options input[type="checkbox"] {
     appearance: none;
     width: 20px;

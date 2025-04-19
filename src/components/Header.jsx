@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink, useLocation } from "react-router-dom"; // Import useLocation
+import { NavLink, useLocation } from "react-router-dom"; 
 import "../styles/Header.css"; 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import CartModal from "./CartModal";
@@ -8,9 +8,8 @@ const Header = ({ cart, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
   const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
   const [isModalOpen, setModalOpen] = useState(false);
 
-  const location = useLocation(); // Get the current route
+  const location = useLocation(); 
 
-  // Background images for each category
   const backgroundImages = {
   "/": "/images/anklet.webp",
     "/jewelry": "/images/anklet.webp",
@@ -19,7 +18,6 @@ const Header = ({ cart, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
     "/food": "/images/taco.jpg",
   };
 
-  // Get the background image based on the current route
   const backgroundImage = backgroundImages[location.pathname] || backgroundImages["/"];
 
   const cartTitle = cartCount === 0 
@@ -59,8 +57,7 @@ const Header = ({ cart, onRemoveFromCart, onDecreaseQuantity, setCart }) => {
           setCart={setCart}
         />
       )}
-
-      {/* Hero Section with Dynamic Background */}
+      
       <div 
         className="hero-section" 
         style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: "cover", backgroundPosition: "center" }}

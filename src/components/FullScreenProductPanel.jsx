@@ -2,15 +2,14 @@ import React, { useState } from "react";
 import "../styles/FullScreenProductPanel.css";
 
 const FullScreenProductPanel = ({ product, onClose }) => {
-  const [wishlist, setWishlist] = useState({}); // Store wishlist state per product
+  const [wishlist, setWishlist] = useState({}); 
 
-  // Toggle wishlist for the current product
   const toggleWishlist = () => {
-    if (!product) return; // Prevent errors if no product is selected
+    if (!product) return; 
 
     setWishlist((prev) => ({
       ...prev,
-      [product.id]: !prev[product.id], // Toggle only this product
+      [product.id]: !prev[product.id],
     }));
   };
 
@@ -38,7 +37,6 @@ const FullScreenProductPanel = ({ product, onClose }) => {
         <>
           <img src={product.image} alt={product.name} className="fullscreen-image" />
           <div className="icon-container">
-            {/* Wishlist Icon */}
             <svg
               onClick={toggleWishlist}
               className={`wishlist-icon ${wishlist[product.id] ? "wishlisted" : ""}`}
@@ -83,7 +81,6 @@ const FullScreenProductPanel = ({ product, onClose }) => {
             >
               <i className="fas fa-download download-icon"></i>
             </a>
-            {/* Stock Indicator */}
           </div>
           <h2>{product.name}</h2>
           <p>{product.description}</p>

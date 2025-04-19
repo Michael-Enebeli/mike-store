@@ -23,7 +23,7 @@
 }
 .compare-toggle:hover .options-dropdown,
 .compare-toggle:hover .options-dropdown button {
-    transform: none; /* Prevents the scaling */
+    transform: none; 
 }
 .compare-toggle.active {
     background-color: #28a745;
@@ -47,13 +47,9 @@
     z-index: 10;
 }
 
-/* Ensure the container is the reference for absolute positioning */
 .comparison-container {
     position: relative;
-    /* This ensures the dropdown stays within the right scope */
 }
-
-/* Styles for the settings icon inside the comparison button */
 .settings-icon {
     margin-left: 15px;
     border-radius: 0 5px 5px 0;
@@ -64,10 +60,6 @@
     position: absolute;
     top: 0;
     height: 40px;
-}
-
-.settings-icon:hover {
-    ransform: rotate(90deg);
 }
 
 .options-dropdown {
@@ -135,23 +127,18 @@
       transform: translateY(-10px);
     }
   }
-  
-  /* Remove any transition property if present */
   .settings-icon,
   .options-dropdown,
   .clear-button {
-    pointer-events: none; /* Prevent interaction when hidden */
+    pointer-events: none; 
   }
   
-  /* When visible, animate in */
   .settings-icon.visible,
   .options-dropdown.visible,
   .clear-button.visible {
     animation: fadeInDown 0.3s ease forwards;
     pointer-events: auto;
   }
-  
-  /* When hidden, animate out */
   .settings-icon.hidden,
   .options-dropdown.hidden,
   .clear-button.hidden {

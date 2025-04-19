@@ -273,21 +273,18 @@ main {
   border-radius: 8px 8px 0 0;
 }
 
-/* Skeleton for Text */
 .skeleton.skeleton-text {
   width: 35%;
   height: 20px;
   margin: 0 auto;
 }
 
-/* Small Text */
 .skeleton.skeleton-text.small {
   width: 70%;
   height: 17px;
   margin: 5px auto;
 }
 
-/* Skeleton for Footer */
 .skeleton.product-footer {
   width: 90%;
   height: 40px;
@@ -304,14 +301,12 @@ main {
   justify-content: space-between;
 }
 
-/* Skeleton for Button */
 .skeleton.skeleton-button {
   width: 120px;
   height: 30px;
   border-radius: 8px;
 }
 
-/* Smooth fade-in animation for loaded content */
 .product-card.loaded {
   opacity: 0;
   animation: fadeIn 0.5s ease forwards;

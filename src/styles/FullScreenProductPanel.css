@@ -1,4 +1,4 @@
-/* Fullscreen panel */
+
 .fullscreen-panel {
   position: fixed;
   top: 0;
@@ -13,12 +13,12 @@
   align-items: center;
   justify-content: center;
   color: beige;
-  transform: translateY(100%); /* Initially hidden beneath the screen */
-  transition: transform 0.3s ease-in-out; /* Smooth transition */
+  transform: translateY(100%); 
+  transition: transform 0.3s ease-in-out;
 }
 
 .fullscreen-panel.show {
-  transform: translateY(0); /* When open, it slides up */
+  transform: translateY(0); 
 }
 
 .fullscreen-panel img {
@@ -32,10 +32,10 @@
 .icon-container {
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Spreads icons evenly */
-  width: 70%; /* Ensures full width */
+  justify-content: space-around;
+  width: 70%; 
   padding: 10px 0;
-  gap: 10px; /* Adds space between icons */
+  gap: 10px; 
   max-width: 600px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -46,11 +46,11 @@
   stroke-width: 2;
   cursor: pointer;
   stroke-width: 2;
-  transition: all 0.3s ease; /* Smooth transition */
+  transition: all 0.3s ease;
 }
 .wishlist-icon:hover {
-  fill: white; /* Keep the inside white */
-  stroke: red; /* Make the border red */
+  fill: white;
+  stroke: red; 
   width: 90;
   stroke-width: 1;
   transform: scale(1.05);
@@ -81,19 +81,19 @@
   font-size: 1.1rem;
 }
 .chat-icon {
-  color: beige; /* Default gray color */
+  color: beige; 
   font-size: 20px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
 
 .chat-icon:hover {
-  color: #007bff; /* Blue on hover */
+  color: #007bff; 
   transform: scale(1.2);
 }
 .fullscreen-panel a {
-  color: inherit; /* Uses default text color */
-  text-decoration: none; /* Removes underline */
+  color: inherit; 
+  text-decoration: none; 
 }
 
 .product-info {

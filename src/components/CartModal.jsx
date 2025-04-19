@@ -63,17 +63,16 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
       window.dispatchEvent(new Event("storage"));
     }, 3500);
 
-    setCheckoutTimeout(timeout); // Save timeout reference
+    setCheckoutTimeout(timeout);
   };
 
   const handleClose = () => {
-    // Cancel checkout process if running
     if (isProcessing) {
       clearTimeout(checkoutTimeout);
       setIsProcessing(false);
       setIsSuccess(false);
     }
-    onClose(); // Close the modal
+    onClose();
   };
 
   const increaseQuantity = (itemId) => {
@@ -82,7 +81,7 @@ const CartModal = ({ cart, onClose, onRemoveFromCart, onDecreaseQuantity, setCar
         if (item.id === itemId) {
           if (item.quantity >= item.stock) {
             alert(`Only ${item.stock} ${item.name} are available in stock.`);
-            return item; // Keep quantity unchanged
+            return item;
           }
           return { ...item, quantity: item.quantity + 1 };
         }

@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer>
       
-      <p>&copy; 2025 Enebeli Chukwudi Michael. All rights reserved.</p>
+      <p>&copy; 2025 Myke-store. All rights reserved.</p>
       <hr className="footer-line" />
        <div className="footer-icons">
         <a href="tel:+2348107792905" title="Call us">
@@ -22,6 +22,8 @@ const Footer = () => {
           <i className="fab fa-github"></i>
         </a>
       </div>
+      <span>Developed by  <a href="https://michaelenebeli.com.ng" target="_blank" rel="noopener noreferrer"> Michael Enebeli </a></span>
+  
     </footer>
   );
 };

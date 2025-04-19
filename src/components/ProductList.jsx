@@ -10,16 +10,14 @@ import FullScreenProductPanel from "./FullScreenProductPanel";
 
 
 const ProductList = ({ category, onAddToCart }) => {
-  // Restore searchQuery from sessionStorage (or default to "")
   const [searchQuery, setSearchQuery] = useState(() => sessionStorage.getItem("searchQuery") || "");
   const [categoryData, setCategoryData] = useState({ description: "", items: [] });
-  const [sortedProducts, setSortedProducts] = useState([]); // Final products after sorting
+  const [sortedProducts, setSortedProducts] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [isComparing, setIsComparing] = useState(false);
   const [selectedProducts, setSelectedProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  // Load selected products on mount
   useEffect(() => {
     const storedProducts = sessionStorage.getItem("selectedProducts");
     if (storedProducts) {
@@ -27,7 +25,6 @@ const ProductList = ({ category, onAddToCart }) => {
     }
   }, []);
 
-  // Persist searchQuery whenever it changes
   useEffect(() => {
     sessionStorage.setItem("searchQuery", searchQuery);
   }, [searchQuery]);
@@ -36,7 +33,6 @@ const ProductList = ({ category, onAddToCart }) => {
     initializeGSAPAnimation(loading);
   }, [loading]);
 
-  // Fetch new products when category changes
   useEffect(() => {
     const fetchUpdatedProducts = () => {
       setLoading(true);
@@ -52,23 +48,17 @@ const ProductList = ({ category, onAddToCart }) => {
     return () => window.removeEventListener("storage", fetchUpdatedProducts);
   }, [category]);
 
-  // Compute products filtered by search query on every render.
   const searchFilteredProducts = useMemo(() => {
     return categoryData.items.filter((product) =>
       product.name.toLowerCase().includes(searchQuery)
     ).slice(0, 12);
   }, [categoryData.items, searchQuery]);
 
-  // When searchFilteredProducts or sorting changes in CustomDropdown,
-  // CustomDropdown calls setSortedProducts. That state is what we render.
-  // (If no sort is applied, CustomDropdown should simply pass back the searchFilteredProducts.)
 
-  // Handle search input changes
   const handleSearch = (e) => {
     setSearchQuery(e.target.value.toLowerCase());
   };
 
-  // For comparison feature
   const handleCheckboxChange = (product) => {
     setSelectedProducts((prev) => {
       let updatedSelection;
@@ -85,11 +75,11 @@ const ProductList = ({ category, onAddToCart }) => {
     });
   };
   const handleProductClick = (product) => {
-    setSelectedProduct(product); // Set the clicked product
+    setSelectedProduct(product); 
   };
 
   const closeProductPanel = () => {
-    setSelectedProduct(null);  // Close the panel by setting selectedProduct to null
+    setSelectedProduct(null); 
   };
   const discountPercentage = 20;
   const calculateOriginalPrice = (price) =>
@@ -109,8 +99,6 @@ const ProductList = ({ category, onAddToCart }) => {
           <i className="fas fa-search"></i>
         </div>
 
-        {/* Pass the search-filtered products to the dropdown.
-            The dropdown will sort them and update sortedProducts via its setFilteredProducts prop. */}
         <div className="controls">
           <CustomDropdown
             products={searchFilteredProducts}
@@ -159,7 +147,7 @@ const ProductList = ({ category, onAddToCart }) => {
                 <img 
                     src={product.image} 
                     alt={product.name} 
-                    onClick={() => handleProductClick(product)}  // When image clicked, set selected product
+                    onClick={() => handleProductClick(product)}
                   />
                   <h3>{product.name}</h3>
                   <p>{product.stock} currently available</p>

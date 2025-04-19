@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import "../styles/SubscriptionForm.css"; // Keep your styles
+import "../styles/SubscriptionForm.css"; 
 
 const SubscriptionForm = () => {
     const [email, setEmail] = useState("");
-    const [frequency, setFrequency] = useState("Monthly"); // Default to monthly
-    const [isInputFocused, setIsInputFocused] = useState(false); // Track input focus
+    const [frequency, setFrequency] = useState("Monthly"); 
+    const [isInputFocused, setIsInputFocused] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         alert(`${frequency} subscription successful`);
-        setEmail(""); // Clear input after submission
-        setIsInputFocused(false); // Reset focus state
+        setEmail(""); 
+        setIsInputFocused(false);
     };
 
     return (
@@ -23,7 +23,7 @@ const SubscriptionForm = () => {
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    onFocus={() => setIsInputFocused(true)} // Enable button on focus
+                    onFocus={() => setIsInputFocused(true)}
                     required
                 />
                 <button type="submit" disabled={!isInputFocused}>Subscribe</button>
