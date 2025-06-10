@@ -76,3 +76,13 @@
   .product-card {
     position: relative;
   }
+
+a, button {
+  cursor: none !important;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a, button {
+    cursor: pointer !important;
+  }
+}
